@@ -17,9 +17,6 @@ use App\Http\Livewire\CheckoutComponent;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
 Route::get('/', HomeComponent::class);
 
 Route::get('/shop', ShopComponent::class);
