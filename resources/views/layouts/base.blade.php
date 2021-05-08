@@ -42,7 +42,7 @@
                                             <a title="My account" href="#">My Account ({{Auth::user()->name}})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                             <ul class="submenu" >
                                                 <li class="menu-item" >
-                                                    <a title="Dashboard" href="#">Dashboard</a>
+                                                    <a title="Dashboard" href="{{ route('admin.dashboard') }}">Dashboard</a>
                                                     <a title="Logout" href="#">Logout</a>
                                                 </li>
                                             </ul>
@@ -52,7 +52,7 @@
                                             <a title="My account" href="#">My Account ({{Auth::user()->name}})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                             <ul class="submenu" >
                                                 <li class="menu-item" >
-                                                    <a title="History" href="#">History</a>
+                                                    <a title="Dashboard" href="{{ route('user.dashboard') }}">Dashboard</a>
                                                     <a title="logout" href="#">Logout</a>
                                                 </li>
                                             </ul>
