@@ -16,6 +16,11 @@ class AuthAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        if (session('utype') === 'ADM')
+        {
+            return $next($request);
+        }
+        session()->flush();
+        return redirect()->route('login');
     }
 }
