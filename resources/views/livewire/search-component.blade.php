@@ -5,13 +5,13 @@
         <div class="wrap-breadcrumb">
             <ul>
                 <li class="item-link"><a href="/" class="link">home</a></li>
-                <li class="item-link"><span>All Book</span></li>
+                <li class="item-link"><span>{{ $search }}</span></li>
             </ul>
         </div>
         <div class="row">
 
             <div class="col-lg-12 col-md-11 col-sm-11 col-xs-12 main-content-area">
-
+                @if($products->count()>0)
                 <div class="row">
 
                     <ul class="product-list grid-products equal-container">
@@ -39,7 +39,9 @@
                     </ul>
 
                 </div>
-
+                @else
+                    <p>No Book found!</p>
+                @endif
                 <div class="wrap-pagination-info">
                     {{ $products->links() }}
                 </div>

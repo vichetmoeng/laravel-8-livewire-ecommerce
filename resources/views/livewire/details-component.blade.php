@@ -32,7 +32,14 @@
                         <div class="short-desc">
                             {{ $product->short_description }}
                         </div>
-                        <div class="wrap-price"><span class="product-price">${{ $product->regular_price }}</span></div>
+                        <div class="wrap-price">
+                            @if($product->sale_price > 0 && $saleDate->status == 1 && $saleDate->sale_date > Carbon\Carbon::now())
+                                <span class="product-price" style="color: red">${{ $product->sale_price }}</span>
+                                <small><del>${{ $product->regular_price }}</del></small>
+                            @else
+                                <span class="product-price">${{ $product->regular_price }}</span>
+                            @endif
+                        </div>
                         <div class="stock-info in-stock">
                             <p class="availability">Availability: @if($product->stock_status === 'instock')<b>In Stock</b>@else<b>Out Stock</b>@endif</p>
                         </div>
