@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\HomeSlider;
+use Artesaos\SEOTools\Facades\SEOTools;
 use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -18,10 +19,6 @@ class AdminAddHomeSliderComponent extends Component
 
     use WithFileUploads;
 
-    public function mount()
-    {
-        $this->status = 0;
-    }
 
     public function addSlide()
     {
@@ -36,6 +33,11 @@ class AdminAddHomeSliderComponent extends Component
         $slider->status = $this->status;
         $slider->save();
         session()->flash('message', 'Slide has been added!');
+    }
+    public function mount()
+    {
+        SEOTools::setTitle('Admin');
+        $this->status = 0;
     }
     public function render()
     {

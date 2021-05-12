@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Sale;
+use Artesaos\SEOTools\Facades\SEOTools;
 use Livewire\Component;
 
 class AdminSaleComponent extends Component
@@ -15,6 +16,7 @@ class AdminSaleComponent extends Component
         $sale = Sale::find(1);
         $this->sale_date = $sale->sale_date;
         $this->status = $sale->status;
+        SEOTools::setTitle('Admin');
     }
 
     public function updateSale()

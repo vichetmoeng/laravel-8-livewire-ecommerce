@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use App\Models\Category;
 use App\Models\HomeCategory;
+use Artesaos\SEOTools\Facades\SEOTools;
 use Livewire\Component;
 
 class AdminHomeCategoryComponent extends Component
@@ -16,6 +17,7 @@ class AdminHomeCategoryComponent extends Component
         $category = HomeCategory::find(1);
         $this->selected_categories = explode(',', $category->sel_categories);
         $this->numberofproducts = $category->no_of_products;
+        SEOTools::setTitle('Admin');
     }
 
     public function updateHomeCategory()

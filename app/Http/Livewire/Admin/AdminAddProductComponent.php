@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use App\Models\Category;
 use App\Models\Product;
+use Artesaos\SEOTools\Facades\SEOTools;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Livewire\Component;
@@ -27,6 +28,7 @@ class AdminAddProductComponent extends Component
 
     public function mount()
     {
+        SEOTools::setTitle('Admin');
         $this->stockStatus = 'instock';
         $this->featured = 0;
     }

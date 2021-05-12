@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Product;
 use App\Models\Sale;
+use Artesaos\SEOTools\Facades\SEOTools;
 use Livewire\Component;
 use Cart;
 
@@ -16,6 +17,7 @@ class DetailsComponent extends Component
     {
         $this->slug = $slug;
         $this->qty = 1;
+        SEOTools::setTitle(Product::where('slug', $slug)->first()->name);
     }
 
     public function increaseQuantity()

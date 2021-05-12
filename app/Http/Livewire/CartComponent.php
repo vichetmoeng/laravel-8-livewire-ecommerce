@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use Artesaos\SEOTools\Facades\SEOTools;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Cart;
@@ -60,6 +61,10 @@ class CartComponent extends Component
         ]);
     }
 
+    public function mount()
+    {
+        SEOTools::setTitle('Cart');
+    }
     public function render()
     {
         $this->setAmountForCheckout();

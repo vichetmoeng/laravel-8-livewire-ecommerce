@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Product;
+use Artesaos\SEOTools\Facades\SEOTools;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -15,6 +16,11 @@ class AdminProductComponent extends Component
         $product = Product::find($id);
         $product->delete();
         session()->flash('message', 'Product has been deleted!');
+    }
+
+    public function mount()
+    {
+        SEOTools::setTitle('Admin');
     }
 
     public function render()

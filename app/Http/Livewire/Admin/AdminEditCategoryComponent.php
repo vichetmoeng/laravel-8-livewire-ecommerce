@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Category;
+use Artesaos\SEOTools\Facades\SEOTools;
 use Illuminate\Support\Str;
 use Livewire\Component;
 
@@ -18,6 +19,7 @@ class AdminEditCategoryComponent extends Component
         $category = Category::where('slug', $slug)->first();
         $this->categoryId = $category->id;
         $this->name = $category->name;
+        SEOTools::setTitle('Admin');
 
     }
 

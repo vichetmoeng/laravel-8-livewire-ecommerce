@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Shipping;
 use App\Models\Transaction;
+use Artesaos\SEOTools\Facades\SEOTools;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Cart;
@@ -178,6 +179,11 @@ class CheckoutComponent extends Component
         {
             return redirect()->route('product.cart');
         }
+    }
+
+    public function mount()
+    {
+        SEOTools::setTitle('Checkout');
     }
 
     public function render()

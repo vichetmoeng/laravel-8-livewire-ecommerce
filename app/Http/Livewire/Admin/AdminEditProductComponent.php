@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use App\Models\Category;
 use App\Models\Product;
+use Artesaos\SEOTools\Facades\SEOTools;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Livewire\Component;
@@ -42,6 +43,7 @@ class AdminEditProductComponent extends Component
         $this->image = $product->image;
         $this->categoryId = $product->category_id;
         $this->productId = $product->id;
+        SEOTools::setTitle('Admin');
     }
 
     public function updateProduct()

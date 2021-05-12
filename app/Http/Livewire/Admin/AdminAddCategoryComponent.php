@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Category;
+use Artesaos\SEOTools\Facades\SEOTools;
 use Illuminate\Support\Str;
 use Livewire\Component;
 
@@ -16,6 +17,11 @@ class AdminAddCategoryComponent extends Component
         $this->validateOnly($fields, [
             'name' => 'unique:categories|required',
         ]);
+    }
+
+    public function mount()
+    {
+        SEOTools::setTitle('Admin');
     }
 
     public function storeCategory()

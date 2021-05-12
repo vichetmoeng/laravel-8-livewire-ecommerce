@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Order;
+use Artesaos\SEOTools\Facades\SEOTools;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
@@ -23,6 +24,10 @@ class AdminOrderComponent extends Component
             session()->flash('canceled', 'Order has been canceled');
         }
         $order->save();
+    }
+    public function mount()
+    {
+        SEOTools::setTitle('Admin');
     }
     public function render()
     {

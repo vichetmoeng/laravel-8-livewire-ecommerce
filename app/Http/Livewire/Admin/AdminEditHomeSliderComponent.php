@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\HomeSlider;
+use Artesaos\SEOTools\Facades\SEOTools;
 use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -31,6 +32,7 @@ class AdminEditHomeSliderComponent extends Component
         $this->image = $slider->image;
         $this->status = $slider->status;
         $this->sliderId = $slider->id;
+        SEOTools::setTitle('Admin');
     }
 
     public function editSlide()

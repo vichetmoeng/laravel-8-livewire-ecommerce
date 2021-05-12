@@ -7,10 +7,16 @@ use App\Models\HomeCategory;
 use App\Models\HomeSlider;
 use App\Models\Product;
 use App\Models\Sale;
+use Artesaos\SEOTools\Facades\SEOTools;
 use Livewire\Component;
 
 class HomeComponent extends Component
 {
+    public function mount()
+    {
+        SEOTools::setTitle('Welcome! | Home');
+        SEOTools::setDescription('This is our website description');
+    }
     public function render()
     {
         $sliders = HomeSlider::where('status', 1)->get();

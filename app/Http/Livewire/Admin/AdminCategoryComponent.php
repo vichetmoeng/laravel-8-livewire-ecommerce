@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Category;
+use Artesaos\SEOTools\Facades\SEOTools;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -15,6 +16,11 @@ class AdminCategoryComponent extends Component
         $category = Category::find($id);
         $category->delete();
         session()->flash('message', 'Category has been deleted!');
+    }
+
+    public function mount()
+    {
+        SEOTools::setTitle('Admin');
     }
 
     public function render()

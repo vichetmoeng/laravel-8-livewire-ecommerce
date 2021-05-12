@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Category;
 use App\Models\Product;
+use Artesaos\SEOTools\Facades\SEOTools;
 use Livewire\Component;
 use Cart;
 
@@ -16,6 +17,7 @@ class SearchComponent extends Component
     public function mount()
     {
         $this->fill(request()->only('search', 'productCat', 'productCatId'));
+        SEOTools::setTitle('Search');
     }
 
     public function store($productId, $productName, $productPrice)
