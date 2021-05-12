@@ -99,7 +99,7 @@
                             <div class="product-info">
                                 <a href="{{ route('product.details', ['slug' => $item->slug]) }}" class="product-name"><span>{{ $item->name }}</span></a>
                                 @if($item->sale_price)
-                                    <div class="wrap-price"><ins><p class="product-price">${{ $item->regular_price }}</p></ins> <del><p class="product-price">${{ $item->sale_price }}</p></del></div>
+                                    <div class="wrap-price"><ins><p class="product-price">${{ $item->sale_price }}</p></ins> <del><p class="product-price">${{ $item->regular_price }}</p></del></div>
                                 @else
                                     <div class="wrap-price"><ins><p class="product-price">${{ $item->regular_price }}</p></ins> </div>
                                     @endif
