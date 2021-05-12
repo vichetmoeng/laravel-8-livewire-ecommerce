@@ -26,6 +26,7 @@
                                 <th>Email</th>
                                 <th>Status</th>
                                 <th>Order Date</th>
+                                <th>Actions</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -39,6 +40,9 @@
                                         <td>{{ $order->email }}</td>
                                         <td>{{ $order->status }}</td>
                                         <td>{{ $order->created_at }}</td>
+                                        <td>
+                                            <a href="{{ route('admin.orderdetails', ['order_id' => $order->id]) }}" class="btn btn-info btn-sm">View</a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

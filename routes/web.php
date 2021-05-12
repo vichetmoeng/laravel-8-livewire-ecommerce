@@ -22,7 +22,7 @@ use App\Http\Livewire\Admin\AdminHomeCategoryComponent;
 use App\Http\Livewire\Admin\AdminSaleComponent;
 use App\Http\Livewire\ThankyouComponent;
 use App\Http\Livewire\Admin\AdminOrderComponent;
-
+use App\Http\Livewire\Admin\AdminOrderDetailsComponent;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -61,6 +61,7 @@ Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function () 
     Route::get('/admin/sale', AdminSaleComponent::class)->name('admin.sale');
 
     Route::get('/admin/orders', AdminOrderComponent::class)->name('admin.orders');
+    Route::get('/admin/order/{order_id}', AdminOrderDetailsComponent::class)->name('admin.orderdetails');
 });
 
 // Route for Customer
