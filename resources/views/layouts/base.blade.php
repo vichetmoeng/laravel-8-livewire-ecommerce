@@ -106,7 +106,7 @@
                 <div class="mid-section main-info-area">
 
                     <div class="wrap-logo-top left-section">
-                        <a href="/" class="link-to-home"><img src="{{ asset('assets/images/logo-top-1.png') }}" alt="mercado"></a>
+                        <a href="/" class="link-to-home"><img src="{{ asset('assets/images/logo-top-1.png') }}" alt="VCVS Book Store Group"></a>
                     </div>
 
                     @livewire('header-search-component')
@@ -147,11 +147,9 @@
 
 {{$slot}}
 
-<footer id="footer">
+<footer id="footer" @if(Request::is('dashboard/*')) class="hidden" @endif>
     <div class="wrap-footer-content footer-style-1">
         <hr>
-        <!--End function info-->
-
         <div class="main-footer-content">
 
             <div class="container">
@@ -166,15 +164,15 @@
                                     <ul>
                                         <li>
                                             <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                            <p class="contact-txt">45 Grand Central Terminal New York,NY 1017 United State USA</p>
+                                            <p class="contact-txt">#wapProject Royal University of Phnom Penh 1200 Cambodia KH</p>
                                         </li>
                                         <li>
                                             <i class="fa fa-phone" aria-hidden="true"></i>
-                                            <p class="contact-txt">(+123) 456 789 - (+123) 666 888</p>
+                                            <p class="contact-txt">(+010) 010 101 101 - (+101) 110 010</p>
                                         </li>
                                         <li>
                                             <i class="fa fa-envelope" aria-hidden="true"></i>
-                                            <p class="contact-txt">Contact@yourcompany.com</p>
+                                            <p class="contact-txt">admin@localhost.com</p>
                                         </li>
                                     </ul>
                                 </div>
@@ -182,45 +180,34 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12 box-twin-content ">
-                        <div class="row">
-                            <div class="wrap-footer-item twin-item">
-                                <h3 class="item-header">My Account</h3>
-                                <div class="item-content">
-                                    <div class="wrap-vertical-nav">
-                                        <ul>
-                                            <li class="menu-item"><a href="#" class="link-term">My Account</a></li>
-                                            <li class="menu-item"><a href="#" class="link-term">Brands</a></li>
-                                            <li class="menu-item"><a href="#" class="link-term">Gift Certificates</a></li>
-                                            <li class="menu-item"><a href="#" class="link-term">Affiliates</a></li>
-                                            <li class="menu-item"><a href="#" class="link-term">Wish list</a></li>
-                                        </ul>
+                    <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12 box-twin-content">
+                        <div class="row pull-right">
+                            <div class="wrap-footer-item twin-item pull-right">
+                                @auth
+                                    <h3 class="item-header">My Account</h3>
+                                    <div class="item-content">
+                                        <div class="wrap-vertical-nav">
+                                            <ul>
+
+                                                @if(Auth::user()->utype === 'ADM')
+                                                    <li class="menu-item"><a href="{{ route('admin.dashboard') }}" class="link-term">Dashboard</a></li>
+                                                    <li class="menu-item"><a href="{{ route('admin.orders') }}" class="link-term">Orders</a></li>
+                                                @else
+                                                    <li class="menu-item"><a href="{{ route('user.dashboard') }}" class="link-term">Dashboard</a></li>
+                                                    <li class="menu-item"><a href="{{ route('user.orders') }}" class="link-term">Orders</a></li>
+                                                @endif
+                                                <li class="menu-item"><a href="/checkout" class="link-term">Checkout</a></li>
+                                                <li class="menu-item"><a href="/cart" class="link-term">Cart</a></li>
+
+                                            </ul>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="wrap-footer-item twin-item">
-                                <h3 class="item-header">Infomation</h3>
-                                <div class="item-content">
-                                    <div class="wrap-vertical-nav">
-                                        <ul>
-                                            <li class="menu-item"><a href="#" class="link-term">Contact Us</a></li>
-                                            <li class="menu-item"><a href="#" class="link-term">Returns</a></li>
-                                            <li class="menu-item"><a href="#" class="link-term">Site Map</a></li>
-                                            <li class="menu-item"><a href="#" class="link-term">Specials</a></li>
-                                            <li class="menu-item"><a href="#" class="link-term">Order History</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                @endauth
                             </div>
                         </div>
                     </div>
-
                 </div>
-
             </div>
-
-
-
         </div>
 
         <div class="coppy-right-box">
