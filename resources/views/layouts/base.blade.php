@@ -106,15 +106,7 @@
                     @livewire('header-search-component')
 
                     <div class="wrap-icon right-section">
-                        <div class="wrap-icon-section minicart pull-right">
-                            <a href="#" class="link-direction">
-                                <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-                                <div class="left-info">
-                                    <span class="index">4 items</span>
-                                    <span class="title">CART</span>
-                                </div>
-                            </a>
-                        </div>
+                        @livewire('cart-count-component')
                     </div>
 
                 </div>

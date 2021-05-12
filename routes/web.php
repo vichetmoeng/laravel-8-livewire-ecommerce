@@ -20,6 +20,7 @@ use App\Http\Livewire\Admin\AdminAddHomeSliderComponent;
 use App\Http\Livewire\Admin\AdminEditHomeSliderComponent;
 use App\Http\Livewire\Admin\AdminHomeCategoryComponent;
 use App\Http\Livewire\Admin\AdminSaleComponent;
+use App\Http\Livewire\ThankyouComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,10 +36,11 @@ use App\Http\Livewire\Admin\AdminSaleComponent;
 Route::get('/', HomeComponent::class);
 
 Route::get('/shop', ShopComponent::class);
-Route::get('/cart', CartComponent::class);
-Route::get('/checkout', CheckoutComponent::class);
+Route::get('/cart', CartComponent::class)->name('product.cart');
+Route::get('/checkout', CheckoutComponent::class)->name('checkout');
 Route::get('/product/{slug}', DetailsComponent::class)->name('product.details');
 Route::get('/search', SearchComponent::class)->name('product.search');
+Route::get('/thanks', ThankyouComponent::class)->name('thankyou');
 
 // Route for Admin
 Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function () {

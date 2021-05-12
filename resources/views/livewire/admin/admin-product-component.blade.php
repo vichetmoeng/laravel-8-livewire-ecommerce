@@ -33,6 +33,7 @@
                                 <th>Name</th>
                                 <th>Stock</th>
                                 <th>Price</th>
+                                <th>Discounted</th>
                                 <th>Category</th>
                                 <th>Date</th>
                                 <th>Actions</th>
@@ -52,6 +53,7 @@
                                     <td>{{ $product->name }}</td>
                                     <td>{{ $product->stock_status }}</td>
                                     <td>{{ $product->regular_price }}</td>
+                                    <td>@if($product->sale_price) {{ $product->sale_price }} @else NO @endif</td>
                                     <td>{{ $product->category->name }}</td>
                                     <td>{{ $product->created_at }}</td>
                                     <td>

@@ -5,14 +5,35 @@ namespace App\Http\Livewire;
 use App\Models\Product;
 use App\Models\Sale;
 use Livewire\Component;
+use Cart;
 
 class DetailsComponent extends Component
 {
     public $slug;
+    public $qty;
 
     public function mount($slug)
     {
         $this->slug = $slug;
+        $this->qty = 1;
+    }
+
+    public function increaseQuantity()
+    {
+        $this->qty++;
+    }
+    public function decreaseQuantity()
+    {
+        if ($this->qty > 1){
+            $this->qty--;
+        }
+    }
+
+    public function store($productId, $productName, $productPrice)
+    {
+        Cart::add($productId, $productName, $productPrice, $this->qty, [])->associate('App\Models\Product');
+        session()->flash('message', 'Item added in Cart!');
+        return redirect()->route('product.cart');
     }
 
     public function render()

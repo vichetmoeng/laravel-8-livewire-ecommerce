@@ -29,8 +29,20 @@
                                     </div>
                                     <div class="product-info">
                                         <a href="{{ route('product.details', ['slug' => $product->slug]) }}" class="product-name"><span>{{ $product->name }}</span></a>
-                                        <div class="wrap-price"><span class="product-price">${{ $product->regular_price }}</span></div>
-                                        <a href="#" class="btn add-to-cart">Add To Cart</a>
+                                        <div class="wrap-price">
+                                            <span class="product-price">
+                                                @if($product->sale_price)
+                                                    <span style="color: red">${{ $product->sale_price }}</span> <small><del>${{ $product->regular_price }}</del></small>
+                                                @else
+                                                    ${{ $product->regular_price }}
+                                                @endif
+                                            </span>
+                                        </div>
+                                        @if($product->sale_price)
+                                            <a href="#" wire:click.prevent="store({{ $product->id }}, '{{ $product->name }}', {{ $product->sale_price }})" class="btn add-to-cart @if($product->stock_status == 'outofstock') hidden @endif"  >Add To Cart</a>
+                                        @else
+                                            <a href="#" wire:click.prevent="store({{ $product->id }}, '{{ $product->name }}', {{ $product->regular_price }})" class="btn add-to-cart @if($product->stock_status == 'outofstock') hidden @endif">Add To Cart</a>
+                                        @endif
                                     </div>
                                 </div>
                             </li>

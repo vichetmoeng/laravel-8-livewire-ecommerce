@@ -62,9 +62,6 @@
                                             <div class="group-flash">
                                                 <span class="flash-item new-label">new</span>
                                             </div>
-                                            <div class="wrap-btn">
-                                                <a href="#" class="function-link">quick view</a>
-                                            </div>
                                         </div>
                                         <div class="product-info">
                                             <a href="{{ route('product.details', ['slug' => $product->slug]) }}" class="product-name"><span>{{ $product->name }}</span></a>

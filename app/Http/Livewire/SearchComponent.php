@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Category;
 use App\Models\Product;
 use Livewire\Component;
+use Cart;
 
 class SearchComponent extends Component
 {
@@ -15,6 +16,13 @@ class SearchComponent extends Component
     public function mount()
     {
         $this->fill(request()->only('search', 'productCat', 'productCatId'));
+    }
+
+    public function store($productId, $productName, $productPrice)
+    {
+        Cart::add($productId, $productName, $productPrice, 1, [])->associate('App\Models\Product');
+        session()->flash('message', 'Item added in Cart!');
+        return redirect()->route('product.cart');
     }
 
     public function render()

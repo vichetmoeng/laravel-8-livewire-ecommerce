@@ -46,14 +46,17 @@
                         <div class="quantity">
                             <span>Quantity:</span>
                             <div class="quantity-input">
-                                <input type="text" name="product-quatity" value="1" data-max="120" pattern="[0-9]*" >
-
-                                <a class="btn btn-reduce" href="#" @if($product->stock_status === 'outofstock') disabled @endif></a>
-                                <a class="btn btn-increase" href="#" @if($product->stock_status === 'outofstock') disabled @endif></a>
+                                <input type="text" name="product-quatity" value="1" data-max="120" pattern="[0-9]*" wire:model="qty" >
+                                <a class="btn btn-reduce" wire:click.prevent="decreaseQuantity" href="#" @if($product->stock_status === 'outofstock') disabled @endif></a>
+                                <a class="btn btn-increase" wire:click.prevent="increaseQuantity" href="#" @if($product->stock_status === 'outofstock') disabled @endif></a>
                             </div>
                         </div>
                         <div class="wrap-butons">
-                            <a href="#" class="btn add-to-cart" @if($product->stock_status === 'outofstock') disabled @endif>Add to Cart</a>
+                            @if($product->sale_price)
+                                <a href="#" wire:click.prevent="store({{ $product->id }}, '{{ $product->name }}', {{ $product->sale_price }})" class="btn add-to-cart @if($product->stock_status === 'outofstock') hidden @endif" >Add to Cart</a>
+                            @else
+                                <a href="#" wire:click.prevent="store({{ $product->id }}, '{{ $product->name }}', {{ $product->regular_price }})" class="btn add-to-cart @if($product->stock_status === 'outofstock') hidden @endif " >Add to Cart</a>
+                            @endif
                         </div>
                     </div>
                     <div class="advance-info">
@@ -95,9 +98,6 @@
                                                 <span class="flash-item sale-label">sale</span>
                                             @endif
                                         </div>
-                                        <div class="wrap-btn">
-                                            <a href="#" class="function-link">quick view</a>
-                                        </div>
                                     </div>
                                     <div class="product-info">
                                         <a href="{{ route('product.details', ['slug' => $productRe->slug]) }}" class="product-name"><span>{{ $productRe->name }}</span></a>
@@ -118,5 +118,7 @@
         </div><!--end row-->
 
     </div><!--end container-->
-
+    <script>
+        $(document).getElementById('')
+    </script>
 </main>

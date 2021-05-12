@@ -4,11 +4,20 @@ namespace App\Http\Livewire;
 
 use App\Models\Product;
 use Livewire\Component;
+use Cart;
 use Livewire\WithPagination;
 
 class ShopComponent extends Component
 {
     use WithPagination;
+
+    public function store($productId, $productName, $productPrice)
+    {
+        Cart::add($productId, $productName, $productPrice, 1, [])->associate('App\Models\Product');
+        session()->flash('message', 'Item added in Cart!');
+        return redirect()->route('product.cart');
+    }
+
     public function render()
     {
         $products = Product::paginate(12);
