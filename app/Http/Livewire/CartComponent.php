@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Product;
 use Artesaos\SEOTools\Facades\SEOTools;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -68,6 +69,7 @@ class CartComponent extends Component
     public function render()
     {
         $this->setAmountForCheckout();
-        return view('livewire.cart-component')->layout('layouts.base');
+        $otherProducts = Product::all()->random(6);
+        return view('livewire.cart-component', ['otherProducts' => $otherProducts])->layout('layouts.base');
     }
 }
