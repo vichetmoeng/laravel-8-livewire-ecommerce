@@ -63,6 +63,9 @@
                                                     <a title="Manage Sale Date" href="{{ route('admin.sale') }}">Manage Sale Date</a>
                                                 </li>
                                                 <li class="menu-item">
+                                                    <a title="Manage Orders" href="{{ route('admin.orders') }}">Orders</a>
+                                                </li>
+                                                <li class="menu-item">
                                                     <a title="Logout" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('admin-logout-form').submit();">Logout</a>
                                                 </li>
                                                 <form id="admin-logout-form" method="POST" action="{{ route('logout') }}">
