@@ -32,7 +32,7 @@ class AdminEditHomeSliderComponent extends Component
         $this->image = $slider->image;
         $this->status = $slider->status;
         $this->sliderId = $slider->id;
-        SEOTools::setTitle('Admin');
+        SEOTools::setTitle('Admin | VCVS Book Store Group');
     }
 
     public function editSlide()

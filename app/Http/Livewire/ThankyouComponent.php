@@ -9,7 +9,7 @@ class ThankyouComponent extends Component
 {
     public function mount()
     {
-        SEOTools::setTitle('Thank you!');
+        SEOTools::setTitle('Thank you! | VCVS Book Store Group');
     }
     public function render()
     {

@@ -17,7 +17,7 @@ class AdminHomeCategoryComponent extends Component
         $category = HomeCategory::find(1);
         $this->selected_categories = explode(',', $category->sel_categories);
         $this->numberofproducts = $category->no_of_products;
-        SEOTools::setTitle('Admin');
+        SEOTools::setTitle('Admin | VCVS Book Store Group');
     }
 
     public function updateHomeCategory()

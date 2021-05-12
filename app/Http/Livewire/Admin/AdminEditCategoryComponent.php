@@ -19,7 +19,7 @@ class AdminEditCategoryComponent extends Component
         $category = Category::where('slug', $slug)->first();
         $this->categoryId = $category->id;
         $this->name = $category->name;
-        SEOTools::setTitle('Admin');
+        SEOTools::setTitle('Admin | VCVS Book Store Group');
 
     }
 

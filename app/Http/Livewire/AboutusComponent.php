@@ -11,7 +11,7 @@ class AboutusComponent extends Component
 {
     public function mount()
     {
-        SEOTools::setTitle('About Us');
+        SEOTools::setTitle('About Us | VCVS Book Store Group');
         SEOTools::setDescription('This is about us');
     }
     public function render()

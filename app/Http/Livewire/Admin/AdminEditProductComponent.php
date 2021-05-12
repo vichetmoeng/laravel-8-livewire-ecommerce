@@ -43,7 +43,7 @@ class AdminEditProductComponent extends Component
         $this->image = $product->image;
         $this->categoryId = $product->category_id;
         $this->productId = $product->id;
-        SEOTools::setTitle('Admin');
+        SEOTools::setTitle('Admin | VCVS Book Store Group');
     }
 
     public function updateProduct()

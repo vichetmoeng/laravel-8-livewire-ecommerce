@@ -11,7 +11,7 @@ class UserDashboardComponent extends Component
 {
     public function mount()
     {
-        SEOTools::setTitle('Dashboard');
+        SEOTools::setTitle('Dashboard | VCVS Book Store Group');
     }
     public function render()
     {

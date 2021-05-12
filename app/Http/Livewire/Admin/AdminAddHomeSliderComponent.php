@@ -36,7 +36,7 @@ class AdminAddHomeSliderComponent extends Component
     }
     public function mount()
     {
-        SEOTools::setTitle('Admin');
+        SEOTools::setTitle('Admin | VCVS Book Store Group');
         $this->status = 0;
     }
     public function render()

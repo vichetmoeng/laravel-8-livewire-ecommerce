@@ -15,7 +15,7 @@ class UserOrderDetailsComponent extends Component
     public function mount($order_id)
     {
         $this->order_id = $order_id;
-        SEOTools::setTitle('Order Details');
+        SEOTools::setTitle('Order Details | VCVS Book Store Group');
     }
 
     public function cancelOrder()

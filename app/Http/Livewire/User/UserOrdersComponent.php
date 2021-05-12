@@ -11,7 +11,7 @@ class UserOrdersComponent extends Component
 {
     public function mount()
     {
-        SEOTools::setTitle('Orders');
+        SEOTools::setTitle('Orders | VCVS Book Store Group');
     }
     public function render()
     {

@@ -14,7 +14,7 @@ class HomeComponent extends Component
 {
     public function mount()
     {
-        SEOTools::setTitle('Welcome! | Home');
+        SEOTools::setTitle('Home | VCVS Book Store Group');
         SEOTools::setDescription('This is our website description');
     }
     public function render()

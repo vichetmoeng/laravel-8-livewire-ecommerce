@@ -21,7 +21,7 @@ class AdminAddCategoryComponent extends Component
 
     public function mount()
     {
-        SEOTools::setTitle('Admin');
+        SEOTools::setTitle('Admin | VCVS Book Store Group');
     }
 
     public function storeCategory()

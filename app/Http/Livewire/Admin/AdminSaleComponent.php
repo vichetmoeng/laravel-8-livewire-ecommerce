@@ -16,7 +16,7 @@ class AdminSaleComponent extends Component
         $sale = Sale::find(1);
         $this->sale_date = $sale->sale_date;
         $this->status = $sale->status;
-        SEOTools::setTitle('Admin');
+        SEOTools::setTitle('Admin | VCVS Book Store Group');
     }
 
     public function updateSale()

@@ -13,7 +13,7 @@ class AdminOrderDetailsComponent extends Component
     public function mount($order_id)
     {
         $this->orderid = $order_id;
-        SEOTools::setTitle('Admin');
+        SEOTools::setTitle('Admin | VCVS Book Store Group');
     }
 
     public function render()

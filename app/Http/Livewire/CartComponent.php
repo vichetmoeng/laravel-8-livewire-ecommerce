@@ -63,7 +63,7 @@ class CartComponent extends Component
 
     public function mount()
     {
-        SEOTools::setTitle('Cart');
+        SEOTools::setTitle('Cart | VCVS Book Store Group');
     }
     public function render()
     {

@@ -21,7 +21,7 @@ class ShopComponent extends Component
 
     public function mount()
     {
-        SEOTools::setTitle('Shop');
+        SEOTools::setTitle('Shop | VCVS Book Store Group');
     }
 
     public function render()

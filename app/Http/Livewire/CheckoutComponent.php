@@ -183,7 +183,7 @@ class CheckoutComponent extends Component
 
     public function mount()
     {
-        SEOTools::setTitle('Checkout');
+        SEOTools::setTitle('Checkout | VCVS Book Store Group');
     }
 
     public function render()

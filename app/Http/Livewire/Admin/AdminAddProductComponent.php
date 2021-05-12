@@ -28,7 +28,7 @@ class AdminAddProductComponent extends Component
 
     public function mount()
     {
-        SEOTools::setTitle('Admin');
+        SEOTools::setTitle('Admin | VCVS Book Store Group');
         $this->stockStatus = 'instock';
         $this->featured = 0;
     }

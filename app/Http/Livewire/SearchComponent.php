@@ -17,7 +17,7 @@ class SearchComponent extends Component
     public function mount()
     {
         $this->fill(request()->only('search', 'productCat', 'productCatId'));
-        SEOTools::setTitle('Search');
+        SEOTools::setTitle('Search | VCVS Book Store Group');
     }
 
     public function store($productId, $productName, $productPrice)

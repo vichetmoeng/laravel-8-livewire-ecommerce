@@ -17,7 +17,7 @@ class DetailsComponent extends Component
     {
         $this->slug = $slug;
         $this->qty = 1;
-        SEOTools::setTitle(Product::where('slug', $slug)->first()->name);
+        SEOTools::setTitle(Product::where('slug', $slug)->first()->name .' | VCVS Book Store Group');
     }
 
     public function increaseQuantity()
