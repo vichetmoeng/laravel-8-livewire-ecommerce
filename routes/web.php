@@ -25,6 +25,8 @@ use App\Http\Livewire\Admin\AdminOrderComponent;
 use App\Http\Livewire\Admin\AdminOrderDetailsComponent;
 use App\Http\Livewire\User\UserOrdersComponent;
 use App\Http\Livewire\User\UserOrderDetailsComponent;
+use App\Http\Livewire\AboutusComponent;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,6 +39,7 @@ use App\Http\Livewire\User\UserOrderDetailsComponent;
 */
 
 Route::get('/', HomeComponent::class);
+Route::get('/about', AboutusComponent::class)->name('aboutus');
 
 
 Route::get('/shop', ShopComponent::class);
