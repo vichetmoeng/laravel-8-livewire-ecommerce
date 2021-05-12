@@ -38,9 +38,40 @@
             <h1 class="display-2 hidden-xs-down">
                 Dashboard
             </h1>
-            <div class="row mb-3">
-                <div class="col-12 col-xl-12 col-lg-12">
-                    // dashboard contain
+            <div class="row" style="margin-top: 1rem !important;">
+                <div class="col col-lg-6">
+                    <div class="card card-inverse card-success">
+                        <div class="card-block bg-success text-center" style="padding: 1rem !important;">
+                            <h6 class="text-uppercase">All Orders</h6>
+                            <h1 class="display-1">{{ $allOrders }}</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-6">
+                    <div class="card card-inverse card-success">
+                        <div class="card-block bg-success text-center" style="padding: 1rem !important;">
+                            <h6 class="text-uppercase">All Products</h6>
+                            <h1 class="display-1">{{ $allProduct }}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row"  style="margin-top: 1rem !important;">
+                <div class="col col-lg-6">
+                    <div class="card card-inverse card-success">
+                        <div class="card-block bg-success text-center" style="padding: 1rem !important;">
+                            <h6 class="text-uppercase">All Categories</h6>
+                            <h1 class="display-1">{{ $allCat }}</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-6">
+                    <div class="card card-inverse card-success">
+                        <div class="card-block bg-success text-center" style="padding: 1rem !important;">
+                            <h6 class="text-uppercase">All Users</h6>
+                            <h1 class="display-1">{{ $allUsers }}</h1>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!--/row-->

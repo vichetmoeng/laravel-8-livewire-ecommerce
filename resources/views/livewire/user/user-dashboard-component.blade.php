@@ -24,7 +24,15 @@
             </h1>
             <div class="row mb-3">
                 <div class="col-12 col-xl-12 col-lg-12">
-                   // dashboard contain
+                    <div class="card card-inverse card-success">
+                        <div class="card-block bg-success text-center">
+                            <div class="rotate">
+                                <i class="fa fa-shopping-bag fa-2x"></i>
+                            </div>
+                            <h6 class="text-uppercase">All Your Orders</h6>
+                            <h1 class="display-1">{{ $allOrders }}</h1>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!--/row-->
