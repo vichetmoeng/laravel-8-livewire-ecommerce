@@ -12,6 +12,22 @@
 
     <div class="container">
         <div class="our-team-info">
+            <h4 class="title-box">Our Instructor</h4>
+            <div class="our-staff">
+                <div>
+                    <div class="team-member equal-elem" style="text-align: center;">
+                        <div class="media">
+                            <figure><img src="{{ asset('assets/images/chimbunthoeurn.jpg')}}" style="width: 350px ; height: 350px;" alt="CHIM_BUNTHOEURN"></figure>
+                        </div>
+                        <div class="info">
+                            <b class="name">CHIM BUNTHOEURN</b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="our-team-info">
             <h4 class="title-box">Our teams</h4>
             <div class="our-staff">
                 <div
@@ -21,83 +37,70 @@
                     data-nav="true"
                     data-dots="false"
                     data-margin="30"
-                    data-responsive='{"0":{"items":"1"},"480":{"items":"2"},"768":{"items":"3"},"992":{"items":"3"},"1200":{"items":"4"}}' >
+                    data-responsive='{"0":{"items":"1"},"480":{"items":"2"},"768":{"items":"3"},"992":{"items":"3"},"1200":{"items":"4"},"100":{"items":"5"}}' >
 
                     <div class="team-member equal-elem">
                         <div class="media">
                             <a href="#" title="LEONA">
-                                <figure><img src="assets/images/member-leona.jpg" alt="LEONA"></figure>
+                                <figure><img src="{{ asset('assets/images/moeng-vichet.png')}}" style="width: 300px ; height: 350px;" alt="LEONA"></figure>
                             </a>
                         </div>
                         <div class="info">
-                            <b class="name">leona</b>
-                            <span class="title">Director</span>
-                            <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
+                            <b class="name">MOENG VICHET</b>
                         </div>
                     </div>
 
                     <div class="team-member equal-elem">
                         <div class="media">
-                            <a href="#" title="LUCIA">
-                                <figure><img src="assets/images/member-lucia.jpg" alt="LUCIA"></figure>
-                            </a>
+                            <figure><img src="{{ asset('assets/images/lengchhinghor.jpg')}}" style="width: 300px ; height: 350px;" alt="LENG_CHHINGHOR"></figure>
                         </div>
                         <div class="info">
-                            <b class="name">LUCIA</b>
-                            <span class="title">Manager</span>
-                            <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
+                            <b class="name">LENG CHHINGHOR</b>
                         </div>
                     </div>
 
                     <div class="team-member equal-elem">
                         <div class="media">
-                            <a href="#" title="NANA">
-                                <figure><img src="assets/images/member-nana.jpg" alt="NANA"></figure>
-                            </a>
+                            <figure><img src="{{ asset('assets/images/pengchhaihuo.jpg')}}" style="width: 300px ; height: 350px;" alt="PENG_CHAIHUO"></figure>
                         </div>
                         <div class="info">
-                            <b class="name">NANA</b>
-                            <span class="title">Marketer</span>
-                            <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
+                            <b class="name">PENG CHAIHUO</b>
                         </div>
                     </div>
 
                     <div class="team-member equal-elem">
                         <div class="media">
-                            <a href="#" title="BRAUM">
-                                <figure><img src="assets/images/member-braum.jpg" alt="BRAUM"></figure>
-                            </a>
+                            <figure><img src="{{ asset('assets/images/tangseakly.jpg')}}" style="width: 300px ; height: 350px;" alt="TANG_SEAKLY"></figure>
                         </div>
                         <div class="info">
-                            <b class="name">BRAUM</b>
-                            <span class="title">Member</span>
-                            <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
+                            <b class="name">TANG SEAKLY</b>
                         </div>
                     </div>
 
                     <div class="team-member equal-elem">
                         <div class="media">
-                            <a href="#" title="LUCIA">
-                                <figure><img src="assets/images/member-lucia.jpg" alt="LUCIA"></figure>
-                            </a>
+                            <figure><img src="{{ asset('assets/images/somrithsokhoun.jpg')}}" style="width: 300px ; height: 350px;" alt="SOMRITH_SOKHOUN"></figure>
                         </div>
                         <div class="info">
-                            <b class="name">LUCIA</b>
-                            <span class="title">Manager</span>
-                            <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
+                            <b class="name">SOMRITH SOKHOUN</b>
                         </div>
                     </div>
 
                     <div class="team-member equal-elem">
                         <div class="media">
-                            <a href="#" title="NANA">
-                                <figure><img src="assets/images/member-nana.jpg" alt="NANA"></figure>
-                            </a>
+                            <figure><img src="{{ asset('assets/images/sornpathlavy.jpg')}}" style="width: 300px ; height: 350px;" alt="SORN_PATHLAVY"></figure>
                         </div>
                         <div class="info">
-                            <b class="name">NANA</b>
-                            <span class="title">Marketer</span>
-                            <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
+                            <b class="name">SORN PATHLAVY</b>
+                        </div>
+                    </div>
+
+                    <div class="team-member equal-elem">
+                        <div class="media">
+                            <figure><img src="{{ asset('assets/images/omvannak.jpg')}}" style="width: 300px ; height: 350px;" alt="OM_VANNAK"></figure>
+                        </div>
+                        <div class="info">
+                            <b class="name">OM VANNAK</b>
                         </div>
                     </div>
 
