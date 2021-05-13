@@ -26,6 +26,9 @@
                     <a title="Manage Orders" href="{{ route('admin.orders') }}">Orders</a>
                 </li>
                 <li class="menu-item">
+                    <a title="Manage Users" href="{{ route('admin.users') }}">Users</a>
+                </li>
+                <li class="menu-item">
                     <a title="Logout" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('admin-logout-form').submit();">Logout</a>
                 </li>
                 <form id="admin-logout-form" method="POST" action="{{ route('logout') }}">
@@ -101,7 +104,7 @@
                                                         <td>{{ $product->created_at }}</td>
                                                         <td>
                                                             <a href="{{ route('admin.editproduct', ['slug' => $product->slug]) }}"><i class="fa fa-edit fa-2x text-info"></i> </a>
-                                                            <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent="deleteProduct({{ $product->id }})"><i class="fa fa-times fa-2x text-danger" style="margin-left: 10px 0;"></i> </a>
+                                                            <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent="deleteProduct({{ $product->id }})"><i class="fa fa-times fa-2x text-danger" style="margin-left: 10px;"></i> </a>
                                                         </td>
                                                     </tr>
                                                 @endforeach

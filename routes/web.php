@@ -26,6 +26,9 @@ use App\Http\Livewire\Admin\AdminOrderDetailsComponent;
 use App\Http\Livewire\User\UserOrdersComponent;
 use App\Http\Livewire\User\UserOrderDetailsComponent;
 use App\Http\Livewire\AboutusComponent;
+use App\Http\Livewire\Admin\AdminUsersComponent;
+use App\Http\Livewire\Admin\AdminAddUserComponent;
+use App\Http\Livewire\Admin\AdminEditUserComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,7 +50,6 @@ Route::get('/cart', CartComponent::class)->name('product.cart');
 Route::get('/checkout', CheckoutComponent::class)->name('checkout');
 Route::get('/product/{slug}', DetailsComponent::class)->name('product.details');
 Route::get('/search', SearchComponent::class)->name('product.search');
-Route::get('/thanks', ThankyouComponent::class)->name('thankyou');
 
 // Route for Admin
 Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function () {
@@ -68,6 +70,10 @@ Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function () 
 
     Route::get('/dashboard/admin/orders', AdminOrderComponent::class)->name('admin.orders');
     Route::get('/dashboard/admin/order/{order_id}', AdminOrderDetailsComponent::class)->name('admin.orderdetails');
+
+    Route::get('/dashboard/admin/users', AdminUsersComponent::class)->name('admin.users');
+    Route::get('/dashboard/admin/user/add', AdminAddUserComponent::class)->name('admin.adduser');
+    Route::get('/dashboard/admin/user/edit/{user_id}', AdminEditUserComponent::class)->name('admin.edituser');
 });
 
 // Route for Customer
@@ -75,4 +81,5 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('dashboard/user', UserDashboardComponent::class)->name('user.dashboard');
     Route::get('dashboard/user/orders', UserOrdersComponent::class)->name('user.orders');
     Route::get('dashboard/user/order/{order_id}', UserOrderDetailsComponent::class)->name('user.orderdetails');
+    Route::get('/thanks', ThankyouComponent::class)->name('thankyou');
 });

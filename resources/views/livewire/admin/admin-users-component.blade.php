@@ -38,50 +38,64 @@
         </div>
         <!--/col-->
         <div class="col-md-9 col-lg-10 main">
+
             <div class="row mb-3">
                 <div class="col-12 col-xl-12 col-lg-12">
 
                     <div>
+                        <style>
+                            nav svg{
+                                height: 20px;
+                            }
+                            nav .hidden{
+                                display: block !important;
+                            }
+                        </style>
                         <div class="container" style="padding: 30px 0;">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
-                                            Manage Home Categories
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    All Customers
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <a href="{{ route('admin.adduser') }}" class="btn btn-success pull-right">Add New</a>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="panel-body">
                                             @if(Session::has('message'))
                                                 <div class="alert alert-success" role="alert">{{ Session::get('message') }}</div>
                                             @endif
-                                            <form class="form-horizontal" wire:submit.prevent="updateHomeCategory">
-                                                <div class="form-group">
-                                                    <label class="col-md-4 control-label">Choose Categories</label>
-                                                    <div class="col-md-4" wire:ignore>
-                                                        <select class="sel_categories form-control" name="categories[]" multiple="multiple" wire:model="selected_categories">
-                                                            @foreach($categories as $cat)
-                                                                <option value="{{ $cat->id }}">{{ $cat->name }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-                                                </div>
+                                            <table id="datatable" class="table table-striped">
+                                                <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Name</th>
+                                                    <th>Email</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach($users as $user)
+                                                        <tr>
+                                                            <td>{{ $user->id }}</td>
+                                                            <td>{{ $user->name }}</td>
+                                                            <td>{{ $user->email }}</td>
+                                                            <td>
+                                                                <a href="{{ route('admin.edituser', ['user_id' => $user->id]) }}"><i class="fa fa-edit fa-2x text-info"></i> </a>
+                                                                <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent="deleteUser({{ $user->id }})"><i class="fa fa-times fa-2x text-danger" style="margin-left: 10px;"></i> </a>
 
-                                                <div class="form-group">
-                                                    <label class="col-md-4 control-label">Number Of Products</label>
-                                                    <div class="col-md-4">
-                                                        <input type="text" class="form-control input-md" wire:model="numberofproducts" />
-                                                    </div>
-                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
 
-                                                <div class="form-group">
-                                                    <label class="col-md-4 control-label"></label>
-                                                    <div class="col-md-4">
-                                                        <button type="submit" class="btn btn-primary">Add</button>
-                                                    </div>
-                                                </div>
-                                            </form>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -95,15 +109,3 @@
     </div>
 
 </div>
-
-@push('scripts')
-    <script>
-        $(document).ready(function (){
-            $('.sel_categories').select2();
-            $('.sel_categories').on('change', function (e){
-                var data = $('.sel_categories').select2("val");
-                @this.set('selected_categories', data);
-            });
-        });
-    </script>
-@endpush
