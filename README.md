@@ -15,3 +15,7 @@
 8. php artisan serve
 
 ---
+
+---
+Live demo: http://laravel-8-livewire-ecommerce.herokuapp.com/
+---
