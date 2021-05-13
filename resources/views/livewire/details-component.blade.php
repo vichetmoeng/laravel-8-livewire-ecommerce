@@ -43,14 +43,16 @@
                         <div class="stock-info in-stock">
                             <p class="availability">Availability: @if($product->stock_status === 'instock')<b>In Stock</b>@else<b>Out Stock</b>@endif</p>
                         </div>
-                        <div class="quantity">
-                            <span>Quantity:</span>
-                            <div class="quantity-input">
-                                <input type="text" name="product-quatity" value="1" data-max="120" pattern="[0-9]*" wire:model="qty" >
-                                <a class="btn btn-reduce" wire:click.prevent="decreaseQuantity" href="#" @if($product->stock_status === 'outofstock') disabled @endif></a>
-                                <a class="btn btn-increase" wire:click.prevent="increaseQuantity" href="#" @if($product->stock_status === 'outofstock') disabled @endif></a>
+                        @if($product->stock_status === 'instock')
+                            <div class="quantity">
+                                <span>Quantity:</span>
+                                <div class="quantity-input">
+                                    <input type="text" name="product-quatity" value="1" data-max="120" pattern="[0-9]*" wire:model="qty" >
+                                    <a class="btn btn-reduce" wire:click.prevent="decreaseQuantity" href="#"></a>
+                                    <a class="btn btn-increase" wire:click.prevent="increaseQuantity" href="#"></a>
+                                </div>
                             </div>
-                        </div>
+                        @endif
                         <div class="wrap-butons">
                             @if($product->sale_price)
                                 <a href="#" wire:click.prevent="store({{ $product->id }}, '{{ $product->name }}', {{ $product->sale_price }})" class="btn add-to-cart @if($product->stock_status === 'outofstock') hidden @endif" >Add to Cart</a>

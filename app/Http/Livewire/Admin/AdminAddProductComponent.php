@@ -18,7 +18,6 @@ class AdminAddProductComponent extends Component
     public $description;
     public $regularPrice;
     public $salePrice;
-    public $stockStatus;
     public $featured;
     public $quantity;
     public $image;
@@ -29,7 +28,6 @@ class AdminAddProductComponent extends Component
     public function mount()
     {
         SEOTools::setTitle('Admin | VCVS Book Store Group');
-        $this->stockStatus = 'instock';
         $this->featured = 0;
     }
 
@@ -43,7 +41,7 @@ class AdminAddProductComponent extends Component
         $product->regular_price = $this->regularPrice;
         $product->sale_price = $this->salePrice;
         $product->SKU = 'SKU'.mt_rand(0000, 9999);
-        $product->stock_status = $this->stockStatus;
+        $this->quantity > 0 ? $product->stock_status = 'instock' : $product->stock_status = 'outofstock';
         $product->featured = $this->featured;
         $product->quantity = $this->quantity;
         $imageName = Carbon::now()->timestamp.'.'.$this->image->extension();

@@ -13,15 +13,20 @@ class CartComponent extends Component
     public function increaseQuantity($rowId)
     {
         $product = Cart::get($rowId);
-        $qty = $product->qty + 1;
-        Cart::update($rowId, ['quantity' => $qty]);
+        $realProductQty = Product::find($product->id);
+        if ($realProductQty->quantity > $product->quantity){
+            $qty = $product->qty + 1;
+            Cart::update($rowId, ['quantity' => $qty]);
+        }else{
+            session()->flash('message', "You can't add more quantity! Product out of stock");
+        }
         $this->emitTo('cart-count-component', 'refreshComponent');
     }
 
     public function decreaseQuantity($rowId)
     {
         $product = Cart::get($rowId);
-        $qty = $product->qty - 1;
+        $qty = $product->quantity - 1;
         Cart::update($rowId, ['quantity' => $qty]);
         $this->emitTo('cart-count-component', 'refreshComponent');
     }

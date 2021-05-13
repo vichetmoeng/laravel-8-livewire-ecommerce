@@ -73,6 +73,7 @@
                                                     <th>Image</th>
                                                     <th>Name</th>
                                                     <th>Stock</th>
+                                                    <th>Quantity</th>
                                                     <th>Price</th>
                                                     <th>Discounted</th>
                                                     <th>Category</th>
@@ -93,6 +94,7 @@
                                                         </td>
                                                         <td>{{ $product->name }}</td>
                                                         <td>{{ $product->stock_status }}</td>
+                                                        <td>{{ $product->quantity }}</td>
                                                         <td>{{ $product->regular_price }}</td>
                                                         <td>@if($product->sale_price) {{ $product->sale_price }} @else NO @endif</td>
                                                         <td>{{ $product->category->name }}</td>

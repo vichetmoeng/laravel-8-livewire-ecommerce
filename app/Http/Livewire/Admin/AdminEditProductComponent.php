@@ -18,7 +18,6 @@ class AdminEditProductComponent extends Component
     public $description;
     public $regularPrice;
     public $salePrice;
-    public $stockStatus;
     public $featured;
     public $quantity;
     public $image;
@@ -37,7 +36,6 @@ class AdminEditProductComponent extends Component
         $this->description = $product->description;
         $this->regularPrice = $product->regular_price;
         $this->salePrice = $product->sale_price;
-        $this->stockStatus = $product->stock_status;
         $this->featured = $product->featured;
         $this->quantity = $product->quantity;
         $this->image = $product->image;
@@ -55,9 +53,9 @@ class AdminEditProductComponent extends Component
         $product->description = $this->description;
         $product->regular_price = $this->regularPrice;
         $product->sale_price = $this->salePrice;
-        $product->stock_status = $this->stockStatus;
         $product->featured = $this->featured;
         $product->quantity = $this->quantity;
+        $this->quantity > 0 ? $product->stock_status = 'instock' : $product->stock_status = 'outofstock';
         if ($this->newImage)
         {
             $imageName = Carbon::now()->timestamp.'.'.$this->newImage->extension();

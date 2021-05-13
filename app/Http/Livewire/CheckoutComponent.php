@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\Product;
 use App\Models\Shipping;
 use App\Models\Transaction;
 use Artesaos\SEOTools\Facades\SEOTools;
@@ -110,6 +111,15 @@ class CheckoutComponent extends Component
             $orderItem->price = $item->price;
             $orderItem->quantity = $item->quantity;
             $orderItem->save();
+            $product = Product::find($item->id);
+            if ($product->quantity>0){
+                $product->quantity = $product->quantity - $item->quantity;
+                if ($product->quantity <= 0){
+                    $product->stock_status = 'outofstock';
+                }
+
+            }
+            $product->save();
         }
 
         if ($this->ship_to_different)
