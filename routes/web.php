@@ -29,6 +29,7 @@ use App\Http\Livewire\AboutusComponent;
 use App\Http\Livewire\Admin\AdminUsersComponent;
 use App\Http\Livewire\Admin\AdminAddUserComponent;
 use App\Http\Livewire\Admin\AdminEditUserComponent;
+use App\Http\Livewire\User\UserAcountSettingComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,5 +82,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('dashboard/user', UserDashboardComponent::class)->name('user.dashboard');
     Route::get('dashboard/user/orders', UserOrdersComponent::class)->name('user.orders');
     Route::get('dashboard/user/order/{order_id}', UserOrderDetailsComponent::class)->name('user.orderdetails');
+    Route::get('dashboard/user/setting', UserAcountSettingComponent::class)->name('user.setting');
     Route::get('/thanks', ThankyouComponent::class)->name('thankyou');
 });

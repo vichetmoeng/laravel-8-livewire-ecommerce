@@ -11,6 +11,9 @@
                 <li class="menu-item" >
                     <a title="My Orders" href="{{ route('user.orders') }}">My Orders</a>
                 </li>
+                <li class="menu-item" >
+                    <a title="Account Setting" href="{{ route('user.setting') }}">Account Setting</a>
+                </li>
                 <li class="menu-item">
                     <a title="Logout" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('user-logout-form').submit();">Logout</a>
                 </li>

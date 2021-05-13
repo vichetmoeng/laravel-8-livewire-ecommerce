@@ -69,7 +69,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="panel panel-success">
                                                         <div class="panel-heading">
-                                                            Information
+                                                            Basic information
                                                         </div>
                                                         <div class="panel-body container-fluid">
                                                             <p><strong>Name: </strong>{{ $name }}</p>
