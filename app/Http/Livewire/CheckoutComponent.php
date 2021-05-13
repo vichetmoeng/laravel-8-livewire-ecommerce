@@ -56,8 +56,7 @@ class CheckoutComponent extends Component
             'paymentmode' => 'required'
         ]);
 
-        if ($this->ship_to_different)
-        {
+        if ($this->ship_to_different) {
             $this->validateOnly($fields, [
                 's_firstname' => 'required',
                 's_lastname'  => 'required',
@@ -100,11 +99,10 @@ class CheckoutComponent extends Component
         $order->zipcode   =     $this->zipcode;
 
         $order->status    = 'ordered';
-        $order->is_shipping_different = $this->ship_to_different ? 1:0;
+        $order->is_shipping_different = $this->ship_to_different ? 1 : 0;
         $order->save();
 
-        foreach (Cart::getContent() as $item)
-        {
+        foreach (Cart::getContent() as $item) {
             $orderItem = new OrderItem();
             $orderItem->product_id = $item->id;
             $orderItem->order_id = $order->id;
@@ -112,18 +110,16 @@ class CheckoutComponent extends Component
             $orderItem->quantity = $item->quantity;
             $orderItem->save();
             $product = Product::find($item->id);
-            if ($product->quantity>0){
+            if ($product->quantity > 0) {
                 $product->quantity = $product->quantity - $item->quantity;
-                if ($product->quantity <= 0){
+                if ($product->quantity <= 0) {
                     $product->stock_status = 'outofstock';
                 }
-
             }
             $product->save();
         }
 
-        if ($this->ship_to_different)
-        {
+        if ($this->ship_to_different) {
             $this->validate([
                 's_firstname' => 'required',
                 's_lastname'  => 'required',
@@ -151,8 +147,7 @@ class CheckoutComponent extends Component
             $shipping->save();
         }
 
-        if ($this->paymentmode == 'cod')
-        {
+        if ($this->paymentmode == 'cod') {
             $transaction = new Transaction();
             $transaction->user_id = Auth::user()->id;
             $transaction->order_id = $order->id;
@@ -172,30 +167,27 @@ class CheckoutComponent extends Component
         $this->thankyou = true;
         Cart::clear();
         session()->forget('checkout');
-
     }
 
     public function verifyForCheckout()
     {
-        if (!Auth::check())
-        {
+        if (!Auth::check()) {
             return redirect()->route('login');
-        }
-        elseif ($this->thankyou)
-        {
+        } elseif ($this->thankyou) {
             return redirect()->route('thankyou');
-        }
-        elseif (!session()->get('checkout'))
-        {
+        } elseif (!session()->get('checkout')) {
             return redirect()->route('product.cart');
         }
     }
 
     public function mount()
     {
-        $this->firstname = Auth::user()->name;
-        $this->lastname = Auth::user()->name;
-        $this->email = Auth::user()->email;
+        if (Auth::user()) {
+            $this->firstname = Auth::user()->name;
+            $this->lastname = Auth::user()->name;
+            $this->email = Auth::user()->email;
+        }
+
         SEOTools::setTitle('Checkout | VCVS Book Store Group');
     }
 

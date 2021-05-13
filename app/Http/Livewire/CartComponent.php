@@ -14,10 +14,10 @@ class CartComponent extends Component
     {
         $product = Cart::get($rowId);
         $realProductQty = Product::find($product->id);
-        if ($realProductQty->quantity > $product->quantity){
+        if ($realProductQty->quantity > $product->quantity) {
             $qty = $product->qty + 1;
             Cart::update($rowId, ['quantity' => $qty]);
-        }else{
+        } else {
             session()->flash('message', "You can't add more quantity! Product out of stock");
         }
         $this->emitTo('cart-count-component', 'refreshComponent');
@@ -46,8 +46,7 @@ class CartComponent extends Component
 
     public function checkout()
     {
-        if (Auth::check())
-        {
+        if (Auth::check()) {
             return redirect()->route('checkout');
         } else {
             return redirect()->route('login');
@@ -56,13 +55,12 @@ class CartComponent extends Component
 
     public function setAmountForCheckout()
     {
-        if (!Cart::getContent()->count() > 0)
-        {
+        if (!Cart::getContent()->count() > 0) {
             session()->forget('checkout');
             return;
         }
         session()->put('checkout', [
-           'subtotal' => Cart::getSubTotal(),
+            'subtotal' => Cart::getSubTotal(),
             'total' => Cart::getTotal()
         ]);
     }
@@ -74,7 +72,7 @@ class CartComponent extends Component
     public function render()
     {
         $this->setAmountForCheckout();
-        $otherProducts = Product::all()->random(6);
+        Product::all()->count() > 0 ? $otherProducts = Product::all()->random(6) : $otherProducts = Product::all();
         return view('livewire.cart-component', ['otherProducts' => $otherProducts])->layout('layouts.base');
     }
 }

@@ -85,6 +85,7 @@
         @endif
 
         <!--Product Categories-->
+        @if($categories->count()>0)
         <div class="wrap-show-advance-info-box style-1">
             <h3 class="title-box">Product Categories</h3>
             <div class="wrap-top-banner">
@@ -128,6 +129,7 @@
                 </div>
             </div>
         </div>
+        @endif
     </div>
 
     </div>
