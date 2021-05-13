@@ -60,7 +60,11 @@
                                 <a href="#" wire:click.prevent="store({{ $product->id }}, '{{ $product->name }}', {{ $product->regular_price }})" class="btn add-to-cart @if($product->stock_status === 'outofstock') hidden @endif " >Add to Cart</a>
                             @endif
                         </div>
+                        @if(Session::has('message'))
+                            <div class="alert alert-warning" role="alert" style="margin-top: 10px">{{ Session::get('message') }}</div>
+                        @endif
                     </div>
+
                     <div class="advance-info">
                         <div class="tab-control normal">
                             <a href="#description" class="tab-control-item active">description</a>

@@ -33,6 +33,11 @@ class DetailsComponent extends Component
 
     public function store($productId, $productName, $productPrice)
     {
+        $realProduct = Product::find($productId);
+        if ($realProduct->quantity < $this->qty)
+        {
+            return session()->flash('message', 'Item has only '.$realProduct->quantity.' units left');
+        }
         Cart::add($productId, $productName, $productPrice, $this->qty, [])->associate('App\Models\Product');
         session()->flash('message', 'Item added in Cart!');
         return redirect()->route('product.cart');

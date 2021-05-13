@@ -193,6 +193,9 @@ class CheckoutComponent extends Component
 
     public function mount()
     {
+        $this->firstname = Auth::user()->name;
+        $this->lastname = Auth::user()->name;
+        $this->email = Auth::user()->email;
         SEOTools::setTitle('Checkout | VCVS Book Store Group');
     }
 
